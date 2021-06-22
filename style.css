@@ -1,0 +1,470 @@
+body {
+  margin: 0;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  background-color: var(--color-fondoPage);
+  overflow-x: hidden;
+  color: var(--color-negro);
+}
+
+:root {
+  --color-negro: #24262b;
+  --color-fondoPage: #ffebc2;
+  --color-blanco: #fff;
+  --color-primer: #fdb719;
+  --color-second: #fec01d;
+  --color-terce: #473f9b;
+}
+
+/* Global */
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Header */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo span {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+.nav ul li a:hover {
+  color: var(--color-seleccion);
+}
+
+.carrito {
+  list-style: none;
+  position: relative;
+}
+
+.carrito > img {
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.5s ease;
+}
+
+.carrito > img:hover {
+  cursor: pointer;
+  background-color: #fdc313;
+}
+
+.carrito:hover div {
+  display: grid;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.carrito div {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 4;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  min-width: 420px;
+  min-height: 100px;
+  transition: all 0.5s ease;
+}
+
+.full-width tr {
+  display: grid;
+  grid-template-columns: 100px 100px 80px 80px 50px;
+  align-items: center;
+}
+.full-width td img {
+  max-width: 100px;
+}
+
+.full-width tr td:nth-child(2) {
+  color: var(--color-terce);
+  font-weight: bold;
+}
+
+.full-width tr td:nth-child(5) {
+  position: relative;
+}
+
+.btn-eliminar {
+  background: url("../img/eliminar-simbolo.svg");
+  background-size: cover;
+  position: absolute;
+  left: 20px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+}
+
+#vaciar-carrito {
+  background-color: #ff6b03;
+  color: #000;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 5px;
+  max-height: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Shop */
+
+.shop__header {
+  background-image: radial-gradient(
+    ellipse farthest-corner at 50% 10px,
+    var(--color-primer) 0%,
+    var(--color-primer) 10.5%,
+    var(--color-second) 11%,
+    var(--color-second) 30%,
+    var(--color-primer) 31%,
+    var(--color-primer) 50%,
+    var(--color-second) 51%,
+    var(--color-second) 60%
+  );
+  padding: 5rem 0 12rem 0;
+  width: 100%;
+  border-radius: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.shop__header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.shop__header ul::after {
+  content: "/";
+  position: absolute;
+  top: 0;
+  left: 42%;
+}
+
+.shop__header ul li {
+  display: inline-block;
+}
+
+.shop__header ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0 auto;
+}
+
+.contenedor__shop {
+  width: 90%;
+  margin: 0 auto 4rem auto;
+}
+
+.shop {
+  display: grid;
+  margin: -10rem 0 0 0;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  grid-gap: 2rem;
+}
+
+.shop .card {
+  display: grid;
+  background: white;
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+  grid-template-rows: 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card__header {
+  display: flex;
+  justify-content: center;
+}
+
+.card__btn-1 {
+  background: url("../img/flechas-de-expad.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  top: 15px;
+  left: 20px;
+  position: absolute;
+  z-index: 3;
+}
+
+.card__btn-1:hover {
+  background: none;
+}
+
+.card__btn-1::after {
+  content: "";
+  padding: 5px;
+  height: 20px;
+  width: 20px;
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.card__btn-1:hover::after {
+  cursor: pointer;
+  background: url("../img/flechas-de-expad.svg") center no-repeat,
+    var(--color-primer);
+  background-size: 20px;
+}
+
+.card__btn-2 {
+  background: url("../img/shopping-cart.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  top: 15px;
+  right: 20px;
+  position: absolute;
+  z-index: 3;
+}
+
+.card__btn-2:hover {
+  background: none;
+}
+
+.card__btn-2::after {
+  content: "";
+  padding: 5px;
+  height: 20px;
+  width: 20px;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.card__btn-2:hover::after {
+  cursor: pointer;
+  background: url("../img/shopping-cart.svg") center no-repeat,
+    var(--color-primer);
+  background-size: 20px;
+}
+
+/* card-1 */
+.cuadro {
+  width: 70%;
+  height: 90px;
+  top: 18%;
+  left: 15%;
+  position: absolute;
+  background-color: #ff6b03;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cuadro::after {
+  content: "";
+  width: 60%;
+  height: 160px;
+  left: 20%;
+  top: -35px;
+  position: absolute;
+  background-color: var(--color-primer);
+  border-radius: 50%;
+  border: 5px solid #fff;
+  z-index: 2;
+}
+
+/* card-2 */
+.card:nth-child(2) .cuadro {
+  background-color: #453f9c;
+}
+
+/* card-3 */
+.card:nth-child(3) .cuadro {
+  background-color: #02af67;
+}
+
+/* card-4 */
+.card:nth-child(4) .cuadro {
+  background-color: #02af67;
+}
+
+/* card-4 */
+.card:nth-child(5) .cuadro {
+  background-color: #ff6b03;
+}
+
+/* card-4 */
+.card:nth-child(6) .cuadro {
+  background-color: #453f9c;
+}
+
+.card img {
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+}
+
+.card__body h4 {
+  margin: 1.2rem;
+  color: rgba(68, 6, 168, 0.774);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card__body p {
+  text-align: center;
+  color: rgb(95, 95, 95);
+  font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+  background-color: var(--color-negro);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: var(--color-blanco);
+}
+
+footer h2 {
+  margin: 2rem 0;
+  position: relative;
+}
+
+footer h2::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 35px;
+  left: 0;
+  background-color: lightcoral;
+  border-radius: 0 2px 2px 0;
+}
+
+footer h3 {
+  margin: 2.3rem 0 1rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+footer h3::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 30px;
+  left: 0;
+  background-color: lightcoral;
+  border-radius: 0 2px 2px 0;
+}
+
+footer .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: initial;
+  justify-items: center;
+}
+
+.footer .col {
+  display: flex;
+  justify-items: space-between;
+}
+
+.col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.col ul li {
+  margin: 0 0 10px 0;
+}
+
+.col ul li a {
+  text-decoration: none;
+  color: var(--color-blanco);
+  transition: all 0.5s ease;
+}
+
+.col ul li a:hover {
+  padding: 0 0 0 25px;
+}
+
+.footer__redes li a {
+  padding: 0 0 0 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.footer__redes li:nth-child(1) a {
+  background: url("../img/gmail-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(2) a {
+  background: url("../img/instagram-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(3) a {
+  background: url("../img/facebook-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(4) a {
+  background: url("../img/twitter-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(5) a {
+  background: url("../img/github-ico.svg") no-repeat;
+}
