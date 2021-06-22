@@ -2,8 +2,18 @@ body {
   margin: 0;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  background-color: #ffebc2;
+  background-color: var(--color-fondoPage);
   overflow-x: hidden;
+  color: var(--color-negro);
+}
+
+:root {
+  --color-negro: #24262b;
+  --color-fondoPage: #ffebc2;
+  --color-blanco: #fff;
+  --color-primer: #fdb719;
+  --color-second: #fec01d;
+  --color-terce: #473f9b;
 }
 
 /* Global */
@@ -48,6 +58,10 @@ body {
   padding: 0 20px;
 }
 
+.nav ul li a:hover {
+  color: var(--color-seleccion);
+}
+
 .carrito {
   list-style: none;
   position: relative;
@@ -57,6 +71,7 @@ body {
   padding: 10px;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.5s ease;
 }
 
 .carrito > img:hover {
@@ -86,6 +101,7 @@ body {
   text-align: center;
   min-width: 420px;
   min-height: 100px;
+  transition: all 0.5s ease;
 }
 
 .full-width tr {
@@ -98,7 +114,7 @@ body {
 }
 
 .full-width tr td:nth-child(2) {
-  color: rgba(68, 6, 168, 0.774);
+  color: var(--color-terce);
   font-weight: bold;
 }
 
@@ -132,12 +148,14 @@ body {
 .shop__header {
   background-image: radial-gradient(
     ellipse farthest-corner at 50% 10px,
-    #eb8d00 0%,
-    #eb8d00 10%,
-    #fdc313 20%,
-    #fdc313 50%,
-    #d6a100 70%,
-    #fdc313 80%
+    var(--color-primer) 0%,
+    var(--color-primer) 10.5%,
+    var(--color-second) 11%,
+    var(--color-second) 30%,
+    var(--color-primer) 31%,
+    var(--color-primer) 50%,
+    var(--color-second) 51%,
+    var(--color-second) 60%
   );
   padding: 5rem 0 12rem 0;
   width: 100%;
@@ -209,29 +227,40 @@ body {
 }
 
 .card__btn-1 {
-  padding: 15px;
+  background: url("../img/flechas-de-expad.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
   top: 15px;
   left: 20px;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: absolute;
   z-index: 3;
 }
 
-.card__btn-1 span {
-  background: url("../img/flechas-de-expad.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 15px;
-  width: 15px;
-  position: absolute;
-  top: 7.5px;
-  left: 7px;
+.card__btn-1:hover {
+  background: none;
 }
 
-.card__btn-1:hover {
+.card__btn-1::after {
+  content: "";
+  padding: 5px;
+  height: 20px;
+  width: 20px;
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.card__btn-1:hover::after {
   cursor: pointer;
-  background-color: #fdc313;
+  background: url("../img/flechas-de-expad.svg") center no-repeat,
+    var(--color-primer);
+  background-size: 20px;
 }
 
 .card__btn-2 {
@@ -246,6 +275,10 @@ body {
   z-index: 3;
 }
 
+.card__btn-2:hover {
+  background: none;
+}
+
 .card__btn-2::after {
   content: "";
   padding: 5px;
@@ -257,11 +290,14 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: absolute;
   z-index: 2;
+  transition: all 0.5s ease;
 }
 
 .card__btn-2:hover::after {
   cursor: pointer;
-  background-color: #fdc213;
+  background: url("../img/shopping-cart.svg") center no-repeat,
+    var(--color-primer);
+  background-size: 20px;
 }
 
 /* card-1 */
@@ -283,7 +319,7 @@ body {
   left: 20%;
   top: -35px;
   position: absolute;
-  background-color: #fdc313;
+  background-color: var(--color-primer);
   border-radius: 50%;
   border: 5px solid #fff;
   z-index: 2;
@@ -336,15 +372,56 @@ body {
 /* Footer */
 
 footer {
-  background-color: #2c303a;
+  background-color: var(--color-negro);
   position: relative;
   bottom: 0;
   width: 100%;
+  color: var(--color-blanco);
+}
+
+footer h2 {
+  margin: 2rem 0;
+  position: relative;
+}
+
+footer h2::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 35px;
+  left: 0;
+  background-color: lightcoral;
+  border-radius: 0 2px 2px 0;
+}
+
+footer h3 {
+  margin: 2.3rem 0 1rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+footer h3::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  top: 30px;
+  left: 0;
+  background-color: lightcoral;
+  border-radius: 0 2px 2px 0;
 }
 
 footer .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: initial;
+  justify-items: center;
+}
+
+.footer .col {
+  display: flex;
+  justify-items: space-between;
 }
 
 .col ul {
@@ -353,9 +430,41 @@ footer .grid {
 }
 
 .col ul li {
+  margin: 0 0 10px 0;
 }
 
 .col ul li a {
   text-decoration: none;
-  color: #000;
+  color: var(--color-blanco);
+  transition: all 0.5s ease;
+}
+
+.col ul li a:hover {
+  padding: 0 0 0 25px;
+}
+
+.footer__redes li a {
+  padding: 0 0 0 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.footer__redes li:nth-child(1) a {
+  background: url("../img/gmail-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(2) a {
+  background: url("../img/instagram-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(3) a {
+  background: url("../img/facebook-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(4) a {
+  background: url("../img/twitter-ico.svg") no-repeat;
+}
+
+.footer__redes li:nth-child(5) a {
+  background: url("../img/github-ico.svg") no-repeat;
 }
