@@ -48,6 +48,7 @@ body {
   list-style: none;
   display: flex;
   gap: 3rem;
+  padding: 0;
 }
 
 .nav ul li a {
@@ -204,7 +205,7 @@ body {
 .shop {
   display: grid;
   margin: -10rem 0 0 0;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
   justify-items: center;
   grid-gap: 2rem;
 }
@@ -414,14 +415,15 @@ footer h3::before {
 
 footer .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
   align-items: initial;
-  justify-items: center;
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
 }
 
-.footer .col {
-  display: flex;
-  justify-items: space-between;
+footer .col {
+  display: inline-block;
+  margin: 0 auto
 }
 
 .col ul {
@@ -467,4 +469,10 @@ footer .grid {
 
 .footer__redes li:nth-child(5) a {
   background: url("../img/github-ico.svg") no-repeat;
+}
+
+@media screen and (max-width: 780px){
+  .nav{
+    display: none;
+  }
 }
